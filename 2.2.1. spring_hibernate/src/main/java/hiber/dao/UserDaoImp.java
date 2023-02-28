@@ -37,6 +37,16 @@ public class UserDaoImp implements UserDao {
                 .setParameter("series", series);
 
         return (User) query.getSingleResult();
+    }
 
+    @Override
+    public void addCar(Car car) {
+        sessionFactory.getCurrentSession().save(car);
+    }
+
+    @Override
+    public List<Car> listCars() {
+        TypedQuery<Car> query = sessionFactory.getCurrentSession().createQuery("from Car");
+        return query.getResultList();
     }
 }

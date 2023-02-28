@@ -32,4 +32,16 @@ public class UserServiceImp implements UserService {
       return userDao.getUser(model, series);
    }
 
+   @Transactional
+   @Override
+   public void addCar(Car car) {
+      userDao.addCar(car);
+   }
+
+   @Transactional
+   @Override
+   public List<Car> listCars() {
+      return userDao.listCars();
+   }
+
 }
